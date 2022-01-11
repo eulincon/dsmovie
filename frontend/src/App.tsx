@@ -1,5 +1,5 @@
 import Navbar from 'components/Navbar'
-import Form from 'pages/Form'
+import Form from 'pages/FormC'
 import Listing from 'pages/Listing'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
