@@ -12,7 +12,7 @@ export default function MovieStars() {
         defaultValue={2}
         style={{
           // background: '#c2c2c2',
-          color: 'red',
+          // color: 'red',
           fontSize: '2rem',
           textShadow: 'initial',
         }}

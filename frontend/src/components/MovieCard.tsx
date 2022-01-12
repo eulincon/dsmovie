@@ -1,6 +1,7 @@
 import { Button } from 'antd'
 import MovieScore from 'components/MovieScore'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const MovieCardStyled = styled.div`
@@ -48,9 +49,11 @@ export default function MovieCard() {
       <div className="dsmovie-card-bottom-container">
         <h3>{movie.title}</h3>
         <MovieScore />
-        <Button type="primary" htmlType="submit" className="dsmovie-btn">
-          Avaliar
-        </Button>
+        <Link to={`/form/${movie.id}`}>
+          <Button type="primary" htmlType="submit" className="dsmovie-btn">
+            Avaliar
+          </Button>
+        </Link>
       </div>
     </MovieCardStyled>
   )

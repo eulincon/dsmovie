@@ -1,5 +1,6 @@
 import { Button, Form, Input, InputNumber } from 'antd'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const FormStyled = styled.div`
@@ -93,9 +94,11 @@ export default function FormC() {
           <Button type="primary" htmlType="submit" className="dsmovie-btn">
             Salvar
           </Button>
-          <Button type="primary" className="dsmovie-btn mt-3">
-            Cancelar
-          </Button>
+          <Link to={'/'}>
+            <Button type="primary" className="dsmovie-btn mt-3">
+              Cancelar
+            </Button>
+          </Link>
         </div>
       </Form>
     </FormStyled>
