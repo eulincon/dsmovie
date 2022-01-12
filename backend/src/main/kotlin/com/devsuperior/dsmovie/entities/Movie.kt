@@ -7,9 +7,9 @@ import javax.persistence.*
 data class Movie(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private val id: Long,
-    private val title: String,
-    private val score: Double,
-    private val count: Int,
-    private val image: String
+    val id: Long,
+    val title: String,
+    val score: Double,
+    val count: Int,
+    val image: String
 )
