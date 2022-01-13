@@ -4,10 +4,7 @@ import com.devsuperior.dsmovie.dto.MovieDTO
 import com.devsuperior.dsmovie.services.MovieService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/movies")
@@ -19,6 +16,6 @@ class MovieController(
         movieService.findAll(pageable)
 
     @GetMapping("/{id}")
-    fun findAll(@PathVariable id: Long): MovieDTO =
+    fun findById(@PathVariable id: Long): MovieDTO =
         movieService.findById(id)
 }

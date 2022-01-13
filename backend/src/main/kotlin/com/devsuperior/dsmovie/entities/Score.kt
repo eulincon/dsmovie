@@ -6,10 +6,10 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "tb_score")
-data class Score(
+class Score(
     @EmbeddedId
-    val id: ScorePK = ScorePK(null, null),
-    val value: Double
+    var id: ScorePK = ScorePK(),
+    var value: Double
 ){
     fun setMovie(movie: Movie) {
         id.movie = movie

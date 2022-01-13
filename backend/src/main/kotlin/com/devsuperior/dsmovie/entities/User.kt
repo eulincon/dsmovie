@@ -4,9 +4,9 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "tb_user")
-data class User(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
-    val email: String
+class User(
+    @field:Id
+    @field:GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
+    var email: String
 )

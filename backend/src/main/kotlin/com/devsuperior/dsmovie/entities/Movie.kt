@@ -4,12 +4,14 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "tb_movie")
-data class Movie(
+class Movie(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
-    val title: String,
-    val score: Double,
-    val count: Int,
-    val image: String
+    var id: Long,
+    var title: String,
+    var score: Double,
+    var count: Int,
+    var image: String,
+    @OneToMany(mappedBy = "id.movie")
+    var scores: Set<Score> = hashSetOf()
 )
