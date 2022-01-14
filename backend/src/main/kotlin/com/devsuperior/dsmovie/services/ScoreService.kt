@@ -35,7 +35,7 @@ class ScoreService(
         score = scoreRepository.saveAndFlush(score)
         var sum = 0.0
         movie.scores.forEach {
-            sum += it.value!!
+            sum += it.value
         }
 
         val avg = sum / movie.scores.size

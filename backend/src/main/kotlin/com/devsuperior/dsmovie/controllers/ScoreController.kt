@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 class ScoreController(
     private val scoreService: ScoreService
 ) {
-    @PutMapping()
+    @PutMapping
     fun saveScore(@RequestBody dto: ScoreDTO): MovieDTO =
         scoreService.saveScore(dto)
 }
