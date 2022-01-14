@@ -30,7 +30,7 @@ export default function Navbar() {
       title="DSMovie"
       // subTitle="This is a subtitle"
       extra={[
-        <a href="https://github.com/zlincon" target="_blank">
+        <a href="https://github.com/zlincon">
           <div className="dsmovie-contact-container">
             <GithubOutlined style={{ fontSize: '2rem' }} />
             <p className="dsmovie-contact-link">/zlincon</p>
