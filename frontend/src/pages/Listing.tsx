@@ -1,9 +1,14 @@
 import { Col, Row } from 'antd'
+import axios from 'axios'
 import MovieCard from 'components/MovieCard'
 import Pagination from 'components/Pagination'
 import React from 'react'
 
 export default function Listing() {
+  axios.get('localhost:8080/movies?size=12&page=0').then((res) => {
+    console.log(res.data)
+  })
+
   return (
     <>
       <Pagination />
