@@ -4,12 +4,17 @@ import styled from 'styled-components'
 
 const MovieStarsStyled = styled.div``
 
-export default function MovieStars() {
+type Props = {
+  score: number
+}
+
+export default function MovieStars({ score }: Props) {
   return (
     <MovieStarsStyled className="dsmovie-stars-container">
       <Rate
         disabled
-        defaultValue={2}
+        allowHalf
+        defaultValue={score}
         style={{
           // background: '#c2c2c2',
           // color: 'red',

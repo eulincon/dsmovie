@@ -21,15 +21,18 @@ const MovieStarsStyled = styled.div`
   }
 `
 
-export default function MovieScore() {
-  const score = 3.5
-  const count = 13
+type Props = {
+  score: number
+  count: number
+}
+
+export default function MovieScore({ score, count }: Props) {
   return (
     <MovieStarsStyled>
       <p className="dsmovie-score-value">
         {score > 0 ? score.toFixed(1) : '-'}
       </p>
-      <MovieStars />
+      <MovieStars score={score} />
       <p className="dsmovie-score-count">{count} avaliações</p>
     </MovieStarsStyled>
   )
