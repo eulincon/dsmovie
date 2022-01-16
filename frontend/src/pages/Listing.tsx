@@ -2,13 +2,17 @@ import { Col, Row } from 'antd'
 import axios from 'axios'
 import MovieCard from 'components/MovieCard'
 import Pagination from 'components/Pagination'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL } from 'utils/requests'
 
 export default function Listing() {
-  axios.get(`${BASE_URL}/movies?size=12&page=0`).then((res) => {
-    console.log(res.data)
-  })
+  const [pageNumber, setPageNumber] = useState(0)
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/movies?size=12&page=0`).then((res) => {
+      console.log(res.data)
+    })
+  }, [])
 
   return (
     <>
