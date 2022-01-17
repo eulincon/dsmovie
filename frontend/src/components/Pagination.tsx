@@ -25,7 +25,7 @@ const PaginationStyled = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #eeeeee;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +50,7 @@ const PaginationStyled = styled.div`
   .dsmovie-pagination-container p {
     margin: 0;
     font-size: 12px;
-    color: var(--color-primary);
+    color: '#EEEEEE';
   }
 `
 
@@ -70,7 +70,9 @@ export default function Pagination({ page, onChange }: Props) {
         >
           <LeftOutlined />
         </button>
-        <p>{`${page.number + 1} de ${page.totalPages}`}</p>
+        <p style={{ color: 'white' }}>{`${page.number + 1} de ${
+          page.totalPages
+        }`}</p>
         <button
           className="dsmovie-pagination-button"
           disabled={page.last}

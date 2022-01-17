@@ -12,7 +12,7 @@ const MovieCardStyled = styled.div`
   }
 
   .dsmovie-card-bottom-container {
-    background-color: #fff;
+    background-color: #393e46;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,6 +28,15 @@ const MovieCardStyled = styled.div`
     font-weight: 700;
     height: 40px;
     width: 180px;
+  }
+
+  .dsmovie-card-bottom-container h3 {
+    color: #eeeeee;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    min-height: 45px;
   }
 `
 

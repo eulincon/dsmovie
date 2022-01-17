@@ -26,11 +26,9 @@ export default function Navbar() {
   return (
     <NavBarStyled
       className="site-page-header"
-      onBack={() => null}
       title="DSMovie"
-      // subTitle="This is a subtitle"
       extra={[
-        <a href="https://github.com/zlincon">
+        <a key={1} href="https://github.com/zlincon">
           <div className="dsmovie-contact-container">
             <GithubOutlined style={{ fontSize: '2rem' }} />
             <p className="dsmovie-contact-link">/zlincon</p>

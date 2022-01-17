@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber } from 'antd'
+import { Button, Form, Input, Rate } from 'antd'
 import axios, { AxiosRequestConfig } from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -115,12 +115,13 @@ export default function FormCard({ movieId }: Props) {
             label="Informe sua avaliação"
             style={{ width: '90%' }}
           >
-            <InputNumber
-              min={1}
-              max={5}
-              defaultValue={1}
-              style={{ width: '100%' }}
-              // onChange={onChange}
+            <Rate
+              allowHalf
+              style={{
+                width: '100%',
+                textAlign: 'center',
+                fontSize: '3rem',
+              }}
             />
           </Form.Item>
           <Button type="primary" htmlType="submit" className="dsmovie-btn">
