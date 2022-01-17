@@ -1,7 +1,7 @@
 import { Button, Form, Input, InputNumber } from 'antd'
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { Movie } from 'types/movies'
 import { BASE_URL } from 'utils/requests'
@@ -60,10 +60,30 @@ type Props = {
 
 export default function FormCard({ movieId }: Props) {
   const [movie, setMovie] = useState<Movie>()
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios.get(`${BASE_URL}/movies/${movieId}`).then((res) => setMovie(res.data))
   }, [movieId])
+
+  const onFinish = (values: any) => {
+    console.log('Success:', values)
+
+    const config: AxiosRequestConfig = {
+      baseURL: BASE_URL,
+      method: 'PUT',
+      url: '/scores',
+      data: {
+        email: values.email,
+        movieId: movieId,
+        score: values.score,
+      },
+    }
+
+    axios(config).then((res) => {
+      navigate('/')
+    })
+  }
 
   return (
     <FormStyled>
@@ -72,18 +92,25 @@ export default function FormCard({ movieId }: Props) {
         src={movie?.image}
         alt={movie?.title}
       />
-      <Form layout="vertical">
+      <Form layout="vertical" onFinish={onFinish}>
         <div className="dsmovie-card-bottom-container">
           <h3>{movie?.title}</h3>
           <Form.Item
+            name="email"
             className="dsmovie-form-group"
             style={{ width: '90%' }}
             label="Informe seu email"
-            rules={[{ type: 'email' }]}
+            rules={[
+              {
+                type: 'email',
+                message: 'Por favor, entre com um email válido!',
+              },
+            ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
+            name="score"
             className="dsmovie-form-group"
             label="Informe sua avaliação"
             style={{ width: '90%' }}
