@@ -1,6 +1,7 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { MoviePage } from 'types/movies'
 
 const PaginationStyled = styled.div`
   padding: 15px 0;
@@ -53,15 +54,28 @@ const PaginationStyled = styled.div`
   }
 `
 
-export default function Pagination() {
+type Props = {
+  page: MoviePage
+  onChange: Function
+}
+
+export default function Pagination({ page, onChange }: Props) {
   return (
     <PaginationStyled className="dsmovie-pagination-container">
       <div className="dsmovie-pagination-box">
-        <button className="dsmovie-pagination-button" disabled={true}>
+        <button
+          className="dsmovie-pagination-button"
+          disabled={page.first}
+          onClick={() => onChange(page.number - 1)}
+        >
           <LeftOutlined />
         </button>
-        <p>{`${1} de ${3}`}</p>
-        <button className="dsmovie-pagination-button" disabled={false}>
+        <p>{`${page.number + 1} de ${page.totalPages}`}</p>
+        <button
+          className="dsmovie-pagination-button"
+          disabled={page.last}
+          onClick={() => onChange(page.number + 1)}
+        >
           {/* <Arrow className="dsmovie-flip-horizontal" /> */}
           <RightOutlined />
         </button>
